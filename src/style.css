@@ -3,3 +3,9 @@
 * {
     font-family: 'Dongle', sans-serif;
 }
+
+
+.checked {
+    text-decoration: line-through;
+    color: gray;
+}

@@ -13,15 +13,43 @@ function displayTask() {
         const status = document.createElement('input');
         status.type = 'checkbox';
         status.classList.add('status');
-        if (data[i].status === true) {
-            status.checked = true;
+        status.checked = data[i].status;
+        status.addEventListener('change', () => {
+            data[i].status = status.checked;
+            displayTask();
+        });
+
+
+        let content= document.createElement('input');
+        content.type = 'text';
+        if (data[i].content === '') {
+            content.placeholder = 'Enter task...';
+            content.classList.add('content-edit');
+
+            content.addEventListener('blur', () => {
+                data[i].content = content.value;
+                displayTask();
+            });
+
+            content.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    content.blur();
+                }
+            });
+
+            setTimeout(() => content.focus(), 0);
         } else {
-            status.checked = false;
+            content = document.createElement('input');
+            content.type = 'text';
+            content.classList.add('content');
+            content.value = data[i].content;
         }
 
-        const content = document.createElement('p');
-        content.classList.add('content');
-        content.textContent = data[i].content;
+        if (data[i].status) {
+            content.classList.add('checked');
+        } else {
+            content.classList.remove('checked');
+        }
 
         card.appendChild(status);
         card.appendChild(content);
