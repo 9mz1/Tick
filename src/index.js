@@ -1,6 +1,6 @@
 import "./style.css";
-// import addTaskToDatabase from "./app/tasks.js";
+import renderDOM from "./app/dom";
 
 console.log('This works too!');
 
-// addTaskToDatabase();
+renderDOM();
