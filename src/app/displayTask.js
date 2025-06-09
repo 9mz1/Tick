@@ -24,7 +24,7 @@ function displayTask() {
         content.type = 'text';
         if (data[i].content === '') {
             content.placeholder = 'Enter task...';
-            content.classList.add('content-edit');
+            content.classList.add('content');
 
             content.addEventListener('blur', () => {
                 data[i].content = content.value;
@@ -32,7 +32,7 @@ function displayTask() {
             });
 
             content.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
+                if (e.key === 'Enter' || e.key === 'Escape') {
                     content.blur();
                 }
             });
@@ -43,11 +43,18 @@ function displayTask() {
             content.type = 'text';
             content.classList.add('content');
             content.value = data[i].content;
+
+            content.addEventListener('blur', () => {
+                data[i].content = content.value;
+                displayTask();
+            });
         }
 
         if (data[i].status) {
+            content.disabled = true;
             content.classList.add('checked');
         } else {
+            content.disabled = false;
             content.classList.remove('checked');
         }
 

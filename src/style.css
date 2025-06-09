@@ -1,11 +1,110 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
 
-* {
-    font-family: 'Dongle', sans-serif;
+:root{
+    --font-family: 'Dongle', sans-serif;
+    --primary-color: #FFF;
+    --accent-color: #262626;
+    --secondary-color: #2e2e2e;
 }
 
+* {
+    font-family: var(--font-family);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: 0.2s ease-in-out all;
+}
+
+body {
+    color: var(--accent-color);
+    background-color: var(--primary-color);
+}
 
 .checked {
     text-decoration: line-through;
+    text-decoration-thickness: 2px;
     color: gray;
+    
+}
+
+button {
+    background: none;
+    border: none;
+    font-size: 4rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 0.75fr 3fr;
+    justify-content: center;
+    /* gap: 20px; */
+    height: 100vh;
+}
+
+.left-container, .right-container {
+    padding: 20px;
+}
+
+.left-container {
+    border: 2px solid red;
+}
+
+.right-container {
+    border: 2px solid green;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default;
+}
+
+.heading {
+    font-size: 5rem;
+    font-weight: 700;
+}
+
+.add-btn:hover {
+    transform: scale(1.2);
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.card > .status {
+    border: 2px solid var(--accent-color);
+    transform: scale(2);
+    cursor: pointer;
+}
+.card > .status:checked {
+    background-color: var(--accent-color);
+}
+
+.card > .content {
+    font-size: 2.5rem;
+    font-weight: 300;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 5px;
+    width: 100%;
+    transition: 0.1s ease all;
+}
+
+.card > .content:focus {
+    outline: none;
+    border-bottom: 2px solid var(--secondary-color);
 }
