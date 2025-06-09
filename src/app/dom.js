@@ -9,11 +9,15 @@ function renderDOM() {
     const rightContainer = document.createElement('div');
     rightContainer.classList.add('right-container');
 
+    const title = document.createElement('h1');
+    title.textContent = 'Tick';
+    title.classList.add('title');
+
     const header = document.createElement('div');
     header.classList.add('header');
 
     const heading = document.createElement('h1');
-    heading.textContent = 'Default Todo\'s';
+    heading.textContent = 'Basic Todo\'s';
     heading.classList.add('heading');
 
     const addBtn = document.createElement('button');
@@ -26,6 +30,7 @@ function renderDOM() {
 
     header.appendChild(heading);
     header.appendChild(addBtn);
+    leftContainer.appendChild(title);
     rightContainer.appendChild(header);
     rightContainer.appendChild(listContainer);
     container.appendChild(leftContainer);

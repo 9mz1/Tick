@@ -1,4 +1,4 @@
-var data = [];
+let data = [];
 
 function Task(status, content) {
     this.status = status;
